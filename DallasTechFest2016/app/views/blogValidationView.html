@@ -1,0 +1,72 @@
+﻿<div ng-controller="blogValidationController as ctrl">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Blogs</h3>
+                </div>
+                <div class="panel-body ng-cloak">
+                    <ul>
+                        <li ng-repeat="blog in ctrl.blogs">
+                            <a ng-click="ctrl.selectBlog(blog)">{{ blog.Name }}</a>
+                        </li>
+                    </ul>
+                    <input id="btnAddBlog" type="button" class="btn btn-primary" ng-click="ctrl.addBlog()" value="Add New Blog" />
+                </div>
+            </div>
+            <div>
+                <input type="button" class="btn btn-primary" ng-click="ctrl.saveAll()" value="Save Changes" />
+                <input type="button" class="btn btn-primary" ng-click="ctrl.cancelAll()" value="Cancel Changes" />
+            </div>
+        </div>
+        <div class="col-md-9 ng-cloak">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{ ctrl.selectedBlog.Name }}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li ng-repeat="post in ctrl.selectedBlog.BlogPosts" class="list-group"
+                            id="post-{{ post.BlogPostId }}">
+                            <h4>{{ post.Title }}</h4>
+                            <div>{{ post.Content }}</div>
+                        </li>
+                    </ul>
+                    <input id="btnNewPost" type="button" class="btn btn-primary" ng-click="ctrl.addPost()" value="Add New Post" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary col-md-12" ng-show="ctrl.addingNewBlog">
+        <form role="form" id="newBlogForm" name="newBlogForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-1" for="blogName">Name</label>
+                <input class="form-control col-md-3" type="text" id="blogName" name="blogName" ng-model="ctrl.newBlog.Name" />
+                <span class="text-danger" ng-show="ctrl.blogNameErrors">{{ ctrl.blogNameErrors }}</span>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-1" for="blogUrl">URL</label>
+                <input class="form-control col-md-3" type="text" id="blogUrl" name="blogUrl" ng-model="ctrl.newBlog.Url" />
+                <span class="text-danger" ng-show="ctrl.blogUrlErrors">{{ ctrl.blogUrlErrors }}</span>
+            </div>
+            <input id="btnSaveBlog" type="button" class="btn btn-primary col-md-offset-1" ng-click="ctrl.saveAll()" value="Save" />
+        </form>
+    </div>
+
+    <div class="panel panel-primary col-md-12" ng-show="ctrl.addingNewPost">
+        <form role="form" id="newPostForm" name="newPostForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-1" for="postTitle">Title</label>
+                <input class="form-control col-md-11" type="text" id="postTitle" name="postTitle" ng-model="ctrl.newBlogPost.Title" />
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-1" for="postContent">Content</label>
+                <textarea class="form-control col-md-11" type="text" id="postContent" name="postContent" ng-model="ctrl.newBlogPost.Content"></textarea>
+            </div>
+            <input id="btnAddPost" type="button" class="btn btn-primary col-md-offset-1" ng-click="ctrl.addBlogPost()" value="Add" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>validate</Title>
+    <Author>Microsoft Corporation</Author>
+    <Shortcut>valid</Shortcut>
+    <Description>Breeze Validation</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+    </Declarations>
+    <Code Language="JavaScript"><![CDATA[// Add custom validator for Name
+blogUrl.validators.push(lengthValidatorFactory({ maxValue: 200, minValue: 15 }));
+// now register in breeze
+breeze.Validator.registerFactory(lengthValidatorFactory, "lengthValidator");
+]]></Code>
+  </Snippet>
+</CodeSnippet>

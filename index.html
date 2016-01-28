@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="BlogApp">
+<head>
+    <title>Breeze</title>
+    <meta charset="utf-8" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/breeze.directives.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+</head>
+<body ng-controller="blogController as ctrl">
+    <div id="alerts" class="row"></div>
+    <div ng-view></div>
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/Scripts/breeze.min.js"></script>
+    <script type="text/javascript" src="/Scripts/breeze.directives.js"></script>
+    <script type="text/javascript" src="/Scripts/breeze.bridge.angular.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/services/additionalFunctions.js"></script>
+    <script type="text/javascript" src="/app/controllers/blogController.js"></script>
+</body>
+</html>
